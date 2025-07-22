@@ -61,8 +61,10 @@ app.post('/generate', async (req, res) => {
   try {
     const browser = await puppeteer.launch({
       headless: 'new',
+      executablePath: '/usr/bin/chromium', // ← You point Puppeteer to the system-installed Chromium
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
+
 
     const page = await browser.newPage();
     const PORT = process.env.PORT || 3000;
