@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Customer Quote</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Company Info -->
+    <div class="row">
+      <div class="left company-info">
+        <strong>XN Aluminium PTY LTD</strong><br>
+        ABN 18 645 334 158<br>
+        0458 968 468 | 0430 541 183<br>
+        2/53-67 Cranwell St, Braybrook 3019<br>
+        www.xnwindows.com.au
+      </div>
+      <div class="right">
+        <img src="/Xn-logo.png" class="logo" alt="XN Logo">
+      </div>
+    </div>
+
+    <!-- Quote Info + Big Quote ID -->
+    <div class="row">
+      <div class="left quote-info">
+        <div class="job-address">
+          <span class="label">Job Address:</span> {{project_address}}
+        </div>
+        <p><span class="label">Quote #:</span> {{quote_id}}</p>
+        <p><span class="label">Quote Date:</span> {{quote_date}}</p>
+        <p><span class="label">Due Date:</span> {{due_date}}</p>
+      </div>
+      <div class="right">
+        <div class="quote-id-title">Quote #: {{quote_id}}</div>
+  
+      </div>
+    </div>
+
+    <!-- Bill To + Sales Rep Info -->
+    <div class="row">
+      <div class="left">
+        <span class="label">Bill To</span><br>
+        {{customer_name}}<br>
+        {{customer_phone}}<br>
+        {{customer_email}}<br>
+        {{customer_address}}<br>
+      </div>
+      <div class="right sales-block">
+        <p><span class="label">Sales Rep:</span>{{sales_person}}</p>
+        <p><span class="label">Email:</span> info@xnwindows.com.au</p>
+        <p><span class="label">Phone:</span> 0430 541 183</p>
+      </div>
+    </div>
+
+
+    <!-- Project Configuration Summary -->
+      <table class="config-table">
+      <thead>
+        <tr>
+          <th>Frame Finish</th>
+          <th>Reveals</th>
+          <th>BAL Required</th>
+          <th>Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{frame_finish}}</td>
+          <td>{{reveals_type}}</td>
+          <td>{{bal_required}}</td>
+          <td>{{profile}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!-- Quote Items Table -->
+    <table class="quote-table">
+      <thead>
+        <tr>
+          <th class="center" style="width:5%; border: 1px solid #000;">#</th>
+          <th style="width:7%; border: 1px solid #000;">Room</th>
+          <th style="width:20%; border: 1px solid #000;">Type</th>
+          <th style="width:13%; border: 1px solid #000;">Dimensions (cm)</th>
+          <th style="width:15%; border: 1px solid #000;">Finish</th>
+          <th class="center" style="width:5%; border: 1px solid #000;">Qty</th>
+          <th style="width:20%; border: 1px solid #000;">Glass Type</th>
+          <th class="center" style="width:15%; border: 1px solid #000;">Elevation</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{items_html}}
+      </tbody>
+    </table>
+
+    <!-- Pricing + Notes -->
+    <div class="pricing-notes">
+      <div class="notes-box">
+        <span class="label">Important:</span><br>
+        • Upon quote acceptance, an invoice will be issued for a 50% deposit to begin production.<br>
+        • The remaining balance is due upon delivery or completion of installation.<br>
+        • Please review the full Terms & Conditions on the following page.
+      </div>  
+     <div class="totals-box">
+        <table>
+          <tr>
+            <td>Subtotal</td>
+            <td>{{subtotal_cost}}</td>
+          </tr>
+
+          {{delivery_fee_row}}
+          {{demolition_fee_row}}
+          {{installation_fee_row}}
+          {{disposal_fee_row}}
+          {{gst_cost_row}}
+
+          <tr class="total-row">
+            <td>Total</td>
+            <td>{{total_cost}}</td>
+          </tr>
+        </table>
+     </div>
+
+    </div>
+
+    <!-- Page Break Before Terms -->
+    <div class="page-break"></div>
+    
+    <!-- Terms -->
+    <div class="terms-section">
+    <h3><span class="label">Terms & Conditions</span></h3>
+    <p>
+        The following Terms & Conditions apply to the supply and/or installation of aluminum windows and doors by XN Windows Pty Ltd (ABN 18 645 334 158) and form part of any accepted quotation. By approving this quotation, the client acknowledges acceptance of these terms in full.
+    </p>
+    <ol>
+      <li><strong>Quotation Validity</strong><br>
+        This quotation is valid for 30 days from the date of issue unless agreed otherwise in writing. Pricing and timelines may be revised if accepted after this period.
+      </li>
+      <li><strong>Scope & Exclusions</strong><br>
+        The quotation includes only the products and services specifically listed. Any changes must be confirmed in writing and may incur additional costs. Unless noted otherwise, exclusions include demolition, fixture removal, plastering, painting, rendering, non-standard waterproofing, insect screens, security doors, and other associated trade works.
+      </li>
+      <li><strong>Specifications & Measurements</strong><br>
+        XN Windows is not liable for errors arising from client-supplied plans, measurements, or specifications. Where we take site measurements, the area must be accessible and ready. Final details must be reviewed and confirmed in writing before production.
+      </li>
+      <li><strong>Site Access & Safety</strong><br>
+        Clients must provide safe, clear, and level access. Delays or additional work due to unsafe or incomplete conditions will incur extra charges. Compliance with WHS obligations—including scaffolding or lifting—is the client's responsibility unless agreed otherwise.
+      </li>
+      <li><strong>Structural Openings & Installation Clearances</strong><br>
+        Openings must be square, plumb, dry, and structurally sound. Modifications required to meet these standards will be treated as chargeable variations. All windows and doors are manufactured to suit standard installation tolerances of 20–25mm perimeter clearance unless agreed otherwise in writing.
+      </li>
+      <li><strong>Lead Times & Scheduling</strong><br>
+        Production begins upon receipt of the deposit and written approval of all specifications. Timelines are indicative only and may be impacted by weather, supplier delays, or site conditions.
+      </li>
+      <li><strong>Title, Risk & Payment</strong><br>
+        A 50% deposit is required to commence production. The remaining balance is due upon delivery or installation. Title remains with XN Windows until full payment is received. Risk transfers to the client upon delivery or completion.
+      </li>
+      <li><strong>Warranties</strong><br>
+        Products include manufacturer warranties as per Australian Consumer Law. Installation workmanship is covered by a 12-month warranty <strong>only where installation is performed by XN Windows</strong>. No installation warranty applies to supply-only orders.
+      </li>
+      <li><strong>Client Responsibilities</strong><br>
+        Clients must approve all selections and documentation prior to production and ensure the site is ready and accessible at scheduled times. Post-installation care is the client’s responsibility. Any requested changes must be submitted in writing and may impact cost or timeline.
+      </li>
+      <li><strong>Variations & Cancellations</strong><br>
+        All variations require written authorisation. Cancellations may result in charges for materials, labour, or administrative time already committed.
+      </li>
+      <li><strong>Force Majeure</strong><br>
+        XN Windows is not liable for delays or non-performance due to circumstances beyond our control, including weather, supply disruptions, industrial action, or regulatory delays.
+      </li>
+      <li><strong>Dispute Resolution & Governing Law</strong><br>
+        Disputes will be addressed in good faith and may be referred to mediation if unresolved. This agreement is governed by Victorian law. Acceptance of this quotation confirms agreement to these terms and authorises the signatory to bind the client or entity.
+      </li>
+    </ol>
+
+
+    </div>
+
+
+    <!-- Acceptance -->
+    <div class="acceptance-section">
+        <h3><span class="label">🖊 Acceptance of Quotation</span></h3>
+        <p1>
+            This quotation has been reviewed and approved by XN Windows Pty Ltd. By signing below, the client confirms acceptance of this quotation and full agreement to the attached Terms & Conditions.
+        </p1>
+
+        <div class="signature-row">
+           <div class="signature-col">
+              <p class="signature-label">Authorised Representative – XN Windows</p>
+
+              <div class="signature-wrapper">
+                <img src="/xn-sig.png" class="signature-overlay" alt="XN Windows Signature">
+                <div class="signature-line"></div>
+              </div>
+
+              <p class="signature-meta">Name & Signature</p>
+              <div class="signature-wrapper short">
+                <span class="signature-date">{{quote_date}}</span>
+                <div class="signature-line short"></div>
+              </div>
+              <p class="signature-meta">Date</p>
+            </div>
+
+
+
+            <div class="signature-col">
+            <p class="signature-label">Client Acknowledgement – {{customer_name}}</p>
+            <div class="signature-line"></div>
+            <p class="signature-meta">Name & Signature</p>
+            <div class="signature-line short"></div>
+            <p class="signature-meta">Date</p>
+            </div>
+        </div>
+        
+    </div>
+
+  <div class="pdf-footer">
+    XN Aluminium Windows Pty Ltd &nbsp; | &nbsp; ABN 18 645 334 158 &nbsp; | &nbsp; www.xnwindows.com.au &nbsp; | &nbsp; info@xnwindows.au
+  </div>
+
+</body>
+</html>

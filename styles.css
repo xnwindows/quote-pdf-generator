@@ -1,0 +1,330 @@
+@page {
+  size: A4;
+  margin: 30px;
+}
+
+/* Define navy tone for brand consistency */
+:root {
+  --navy: #343a40;
+  --light-navy-bg: 		#dee2e6;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 794px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.left, .right {
+  flex: 1;
+}
+
+
+.left {
+  padding-right: 20px;
+}
+
+.right {
+  text-align: right;
+}
+
+.logo {
+  height: 130px;
+}
+
+.quote-id-title {
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--navy);
+  text-align: right;
+}
+
+.quote-id {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--navy);
+  text-align: right;
+}
+
+
+.company-info {
+  color: #444;
+  font-weight: 400;
+  font-size: 12.5px;
+  margin-top: 30px;
+}
+
+.job-address {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.spacer {
+  height: 10px;
+}
+
+.quote-info {
+  text-align: left;
+  padding-right: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.quote-info p {
+  margin: 4px 0 8px 0;
+}
+
+.sales-block {
+  text-align: left;
+  padding-left: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.sales-block p {
+  margin: 4px 0 8px 0;
+}
+
+.config-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0 10px;
+  font-size: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.config-table th {
+  background-color: var(--light-navy-bg);
+  color: #000;
+  font-weight: 600;
+  padding: 5px;
+  text-align: left;
+  border: 0.5px solid #000;
+}
+
+.config-table td {
+  padding: 5px;
+  border: 0.5px solid #000;
+}
+
+
+/* Main quote items table */
+table.quote-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  margin-top: 30px;
+}
+
+.quote-table thead th { 
+  background-color: var(--light-navy-bg);
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.quote-table th, .quote-table td {
+  border: 0.5px solid #000;
+  padding: 4px;
+}
+
+.quote-table th {
+  text-align: left !important;
+}
+
+.quote-table td img {
+  max-height: 50px;
+  max-width: 50px;
+  object-fit: contain;
+}
+
+.quote-table td {
+  word-break: break-word;
+}
+
+.quote-table td.note {
+  font-style: italic;
+}
+
+/* Pricing and notes section */
+.pricing-notes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  font-size: 12px;
+}
+
+.notes-box {
+  max-width: 50%;
+}
+
+.totals-box {
+  width: 45%;
+}
+
+.totals-box table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.totals-box td {
+  padding: 6px 4px;
+}
+
+.totals-box td:last-child {
+  text-align: right;
+}
+
+.totals-box .total-row {
+  background-color: var(--light-navy-bg);
+  font-weight: bold;
+  border-top: 1px solid var(--navy);
+  border-bottom: 1px solid var(--navy);
+  color: var(--navy);
+}
+
+.notes-box .label,
+.terms-section .label,
+.acceptance-section .label {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+
+.acceptance-section {
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+.acceptance-section p {
+  margin: 5px 0;
+}
+
+
+.signature-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  margin-top: 10px;
+}
+
+.signature-col {
+  flex: 1;
+  font-size: 12px;
+}
+
+.signature-label {
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.signature-wrapper {
+  position: relative;;
+  margin-bottom: 6px;
+}
+
+.signature-overlay {
+  position: absolute;
+  left: 0;
+  top: -5px;
+  height: 35px;
+  pointer-events: none; /* prevent interaction */
+}
+
+.signature-wrapper.short {
+  position: relative;
+  height: 20px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.signature-date {
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+  color: #000;
+  pointer-events: none;
+}
+
+
+.signature-line {
+  border-bottom: 1px solid #000;
+  height: 28px;
+  margin-bottom: 6px;
+}
+
+.signature-line.short {
+  width: 50%;
+  border-bottom: 1px solid #000;
+  height: 20px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.signature-meta {
+  font-size: 11px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.terms-section {
+  margin-top: 20px;
+  font-size: 11px;
+}
+
+.terms-section p {
+  font-style: italic;
+  font-size: 10px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.terms-section ol {
+  padding-left: 20px;
+}
+
+.terms-section li {
+  margin-bottom: 5px;
+  font-size: 11.5px;
+}
+
+
+.page-break {
+  page-break-before: always;
+}
+
+.pdf-footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 9px;
+  color: #777;
+  border-top: 0.5px solid #ccc;
+  padding-top: 5px;
+  background: #fff; /* to prevent text from clashing if it overlaps */
+}
