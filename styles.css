@@ -109,25 +109,25 @@ body {
 .config-table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed; /* Enforces equal column widths */
   margin: 25px 0 10px;
   font-size: 10px;
   font-family: 'Poppins', sans-serif;
+}
+
+.config-table th,
+.config-table td {
+  width: 25%; /* Forces 4 equal-width columns */
+  padding: 5px;
+  border: 0.5px solid #000;
+  text-align: center; /* Optional: makes it neater */
 }
 
 .config-table th {
   background-color: var(--light-navy-bg);
   color: #000;
   font-weight: 600;
-  padding: 5px;
-  text-align: left;
-  border: 0.5px solid #000;
 }
-
-.config-table td {
-  padding: 5px;
-  border: 0.5px solid #000;
-}
-
 
 /* Main quote items table */
 table.quote-table {
