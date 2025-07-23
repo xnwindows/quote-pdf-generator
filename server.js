@@ -59,11 +59,15 @@ app.post('/generate', async (req, res) => {
   latestData = req.body;
 
   try {
+    const chromiumPath = fs.existsSync('/usr/bin/chromium')
+      ? '/usr/bin/chromium'
+      : '/usr/bin/chromium-browser';
+
     const browser = await puppeteer.launch({
       headless: 'new',
+      executablePath: chromiumPath, // ✅ CRUCIAL FIX
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
-
 
     const page = await browser.newPage();
     const PORT = process.env.PORT || 3000;
@@ -72,7 +76,7 @@ app.post('/generate', async (req, res) => {
       waitUntil: 'networkidle0'
     });
 
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(300); // reduced from 500 for faster healthcheck
 
     const pdfBuffer = await page.pdf({
       format: 'A4',
@@ -81,7 +85,7 @@ app.post('/generate', async (req, res) => {
 
     await browser.close();
 
-    const fileName = req.body.file_name || 'quote.pdf';  // ✅ now dynamic
+    const fileName = req.body.file_name || 'quote.pdf';
 
     res.set({
       'Content-Type': 'application/pdf',
@@ -95,6 +99,7 @@ app.post('/generate', async (req, res) => {
     res.status(500).send('Something went wrong.');
   }
 });
+
 
 
 const PORT = process.env.PORT || 3000;
