@@ -22,12 +22,12 @@ app.get('/preview', (req, res) => {
   let html = fs.readFileSync('index.html', 'utf8');
 
   const basicPlaceholders = [
-    'project_address', 'sales_rep', 'sales_email', 'sales_phone',
+    'project_address',
     'customer_name', 'customer_phone', 'customer_email', 'customer_address',
     'quote_id', 'quote_date', 'due_date',
     'subtotal_cost', 'gst_cost', 'total_cost',
     'items_html',
-    'frame_colour', 'reveals_for', 'reveals_type', 'bal_required',
+    'reveals_type', 'bal_required',
     'sales_person', 'frame_finish', 'profile'
   ];
 
