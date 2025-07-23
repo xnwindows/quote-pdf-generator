@@ -40,9 +40,10 @@ app.get('/preview', (req, res) => {
   // Handle conditional cost rows
   const row = (label, value) => `<tr><td>${label}</td><td>${value}</td></tr>`;
 
+  html = html.replace('{{material_cost_row}}', latestData.material_cost ? row('Material Cost', latestData.material_cost) : '');
+  html = html.replace('{{installation_fee_row}}', latestData.installation_fee ? row('Installation Fee', latestData.installation_fee) : '');
   html = html.replace('{{delivery_fee_row}}', latestData.delivery_fee ? row('Delivery Fee', latestData.delivery_fee) : '');
   html = html.replace('{{demolition_fee_row}}', latestData.demolition_fee ? row('Demolition Fee', latestData.demolition_fee) : '');
-  html = html.replace('{{installation_fee_row}}', latestData.installation_fee ? row('Installation Fee', latestData.installation_fee) : '');
   html = html.replace('{{disposal_fee_row}}', latestData.disposal_fee ? row('Waste Disposal Fee', latestData.disposal_fee) : '');
   html = html.replace('{{gst_cost_row}}', latestData.gst_cost ? row('GST (10%)', latestData.gst_cost) : '');
 
