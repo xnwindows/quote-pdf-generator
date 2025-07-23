@@ -56,7 +56,22 @@ app.post('/generate', async (req, res) => {
     return res.status(401).send('Unauthorized');
   }
 
-  latestData = req.body;
+  const data = req.body;
+
+  // Basic type check
+  if (!data || typeof data !== 'object') {
+    return res.status(400).send('Invalid payload');
+  }
+
+  // Validate required fields
+  const requiredFields = ['quote_id', 'items_html', 'total_cost'];
+  const missingFields = requiredFields.filter(field => !data[field]);
+
+  if (missingFields.length) {
+    return res.status(400).send(`Missing required fields: ${missingFields.join(', ')}`);
+  }
+
+  latestData = data;
 
   try {
     const chromiumPath = fs.existsSync('/usr/bin/chromium')
@@ -65,7 +80,7 @@ app.post('/generate', async (req, res) => {
 
     const browser = await puppeteer.launch({
       headless: 'new',
-      executablePath: chromiumPath, // ✅ CRUCIAL FIX
+      executablePath: chromiumPath,
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
@@ -76,7 +91,7 @@ app.post('/generate', async (req, res) => {
       waitUntil: 'networkidle0'
     });
 
-    await page.waitForTimeout(300); // reduced from 500 for faster healthcheck
+    await page.waitForTimeout(300);
 
     const pdfBuffer = await page.pdf({
       format: 'A4',
@@ -85,7 +100,7 @@ app.post('/generate', async (req, res) => {
 
     await browser.close();
 
-    const fileName = req.body.file_name || 'quote.pdf';
+    const fileName = data.file_name || 'quote.pdf';
 
     res.set({
       'Content-Type': 'application/pdf',
