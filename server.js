@@ -49,7 +49,6 @@ app.get('/preview', (req, res) => {
   res.send(html);
 });
 
-// POST /generate — generate the PDF
 app.post('/generate', async (req, res) => {
   const authHeader = req.headers['x-api-key'];
   if (authHeader !== SECRET_KEY) {
@@ -58,19 +57,17 @@ app.post('/generate', async (req, res) => {
 
   const data = req.body;
 
-  // Validate payload
   if (!data || typeof data !== 'object') {
     return res.status(400).send('Invalid payload');
   }
 
-  // Sanitize: prevent nulls/undefined breaking things
+  // Sanitize inputs
   for (const key in data) {
     if (data[key] === null || data[key] === undefined) {
       data[key] = '';
     }
   }
 
-  // Required fields check (allow "", but not undefined/null)
   const requiredFields = ['quote_id', 'items_html', 'total_cost'];
   const missingFields = requiredFields.filter(field => data[field] === undefined || data[field] === null);
 
@@ -81,13 +78,8 @@ app.post('/generate', async (req, res) => {
   latestData = data;
 
   try {
-    const chromiumPath = fs.existsSync('/usr/bin/chromium')
-      ? '/usr/bin/chromium'
-      : '/usr/bin/chromium-browser';
-
     const browser = await puppeteer.launch({
       headless: 'new',
-      executablePath: chromiumPath,
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
@@ -95,8 +87,7 @@ app.post('/generate', async (req, res) => {
     const PORT = process.env.PORT || 3000;
 
     await page.goto(`http://localhost:${PORT}/preview`, { waitUntil: 'networkidle0' });
-
-    await page.waitForTimeout(300); // Give CSS/images a moment
+    await page.waitForTimeout(300);
 
     const pdfBuffer = await page.pdf({
       format: 'A4',
