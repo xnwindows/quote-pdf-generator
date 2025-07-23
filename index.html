@@ -29,9 +29,6 @@
         <div class="job-address">
           <span class="label">Job Address:</span> {{project_address}}
         </div>
-        <p><span class="label">Quote #:</span> {{quote_id}}</p>
-        <p><span class="label">Quote Date:</span> {{quote_date}}</p>
-        <p><span class="label">Due Date:</span> {{due_date}}</p>
       </div>
       <div class="right">
         <div class="quote-id-title">Quote #: {{quote_id}}</div>
@@ -60,7 +57,8 @@
       <table class="config-table">
       <thead>
         <tr>
-          <th>Frame Finish</th>
+          <th>Quote Date</th>
+          <th>Due Date</th>
           <th>Reveals</th>
           <th>BAL Required</th>
           <th>Profile</th>
@@ -68,7 +66,8 @@
       </thead>
       <tbody>
         <tr>
-          <td>{{frame_finish}}</td>
+          <td>{{quote_date}}</td>
+          <td>{{due_date}}</td>
           <td>{{reveals_type}}</td>
           <td>{{bal_required}}</td>
           <td>{{profile}}</td>
@@ -126,6 +125,8 @@
      </div>
 
     </div>
+
+    <div class="page-break"></div>
     
     <!-- Terms -->
     <div class="terms-section">
@@ -179,9 +180,9 @@
     <!-- Acceptance -->
     <div class="acceptance-section">
         <h3><span class="label">🖊 Acceptance of Quotation</span></h3>
-        <p1>
+        <p>
             This quotation has been reviewed and approved by XN Windows Pty Ltd. By signing below, the client confirms acceptance of this quotation and full agreement to the attached Terms & Conditions.
-        </p1>
+        </p>
 
         <div class="signature-row">
            <div class="signature-col">
